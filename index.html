@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./public/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    
+
+    <title>KnowMyMood</title>
+</head>
+<body>
+   <div class="main-container col-lg-6 col-10 mx-auto py-5 my-5">
+    <div class="description-container">
+        <div class="profile-section">
+            <div class="profile-pic-container">
+                <div class="profile-pic">
+                    <img class='student-pic' src="https://img.freepik.com/premium-photo/friendly-positive-cute-cartoon-steel-robot-with-smilinggenerative-ai_861549-3002.jpg" alt="ProfilePic" />
+                </div>
+            </div>
+            <div class="profile-info-container">
+                <h3 class="name">Hey There👋</h3>
+                <p ><pre class="bot-extra-info" >Text  | Analyze  |  Predict  | 
+   Smart & Dynamic AI</pre></p>
+            </div>
+        </div>
+        <div class="project-details-container">
+            <div class="project-heading">
+                <h1 class="heading">AuraSpectAI✨</h1>
+            </div>
+            <div class="project-description">
+                <p class="description"><b>Introducing </b> your <b style="color: white;">  AI   Saviour </b> 
+Now u can spectate 👀 people's <b style="color: aliceblue;">AURA</b> and follow up your conversations accordingly...</p>
+            </div>
+        </div>
+
+    </div>
+<div class="partition"></div>
+
+    <div class="card p-4">
+        <!-- <h1>KnowMyMood</h1> -->
+        <!-- <form id="form">
+            <input type="text" id="input" class="form-control">
+            <p class="mt-2" id="response">Waiting to process...</p>
+            <input type="submit" class="btn btn-primary" value="Process">
+        </form> -->
+        <form id="form">
+            <input type="text" id="input" placeholder="Enter text here..." required>
+            <button type="submit" class="btn btn-primary" value="Process">Analyze 🔎</button>
+        </form>
+        <!-- <div id="response">Waiting to process...</div> -->
+        <div id="sentiments-container"></div>
+        <div id="loading-icon" class="loading-icon"></div>
+    </div>
+</div>
+
+<footer class="footer">
+    <div class="footer-left">
+        MadeBy@Anjali
+    </div>
+    <div class="footer-right">
+        <!-- <span>DoFollowUs&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span> -->
+        <!-- <a href="https://www.twitter.com"><img src="/pics/twitter.svg" alt="" style="height: 30px;"></a>
+       <FontAwesomeIcon icon="fa-brands fa-instagram" />
+        <a href="https://www.instagram.com"><img src="/pics/insta.svg" alt="" style="height: 30px; margin-left: 13px;"></a>
+        <a href="https://www.facebook.com"><img src="/pics/facebook.svg" alt="" style="height: 30px; margin-left: 13px;"></a>
+        <a href="https://www.github.com"><img src="/pics/git.svg" alt="" style="height: 30px; margin-left: 13px;"></a>
+        -->
+       
+
+    </div>
+</footer>
+
+
+<script>
+const responseElement = document.getElementById('response');
+const inputElement = document.getElementById('input');
+const formElement = document.getElementById('form');
+const sentimentsContainer = document.getElementById('sentiments-container');
+const loadingIcon = document.getElementById('loading-icon');
+
+
+// Custom dictionary for specific phrases
+const customDictionary = {
+    "that was sick man": "positive",
+    "that's lit": "positive",
+    // "that sucks": "negative",
+    // Add more phrases as needed
+};
+
+// Emoji map for emotions
+const emojiMap = {
+    "joy": "😊",
+    "sadness": "😞",
+    "anger": "😠",
+    "surprise": "😲",
+    "disgust": "🤢",
+    "fear": "😨",
+    "neutral": "😐",
+    
+};
+
+formElement.addEventListener('submit', event => {
+    event.preventDefault(); // prevents the page from reloading
+
+    const inputText = inputElement.value.toLowerCase();
+
+    // Clear previous sentiments
+    sentimentsContainer.innerHTML = '';
+
+     // Show the loading icon
+     loadingIcon.style.display = 'block';
+
+     // Check the custom dictionary first
+     if (customDictionary[inputText]) {
+        responseElement.innerText = customDictionary[inputText] === "positive" ? 'Positive vibes ' : 'Negative vibes detected ';
+        inputElement.value = '';
+        
+         // Hide the loading icon
+         loadingIcon.style.display = 'none';
+
+        return;
+    }
+
+   
+    fetch('/', {
+        method: 'POST',
+        headers: {
+            "Content-Type": 'application/json'
+        },
+        body: JSON.stringify({
+            text: inputElement.value
+        })
+    }).then(res => res.json())
+    .then(res => {
+        console.log('API Response:', res); // Log the response for debugging
+        if (res.length > 0) {
+            const sentiments = res[0];
+             // Sort the sentiments based on score and get the top 5
+             const topSentiments = sentiments.sort((a, b) => b.score - a.score).slice(0, 5);
+
+            topSentiments.forEach(sentiment => {
+                const sentimentContainer = document.createElement('div');
+                sentimentContainer.className = 'sentiment-container';
+                
+
+                const sentimentLabel = document.createElement('div');
+                sentimentLabel.innerText = `${sentiment.label}` ;
+                sentimentLabel.className='label';
+                 sentimentLabel.style.color = 'white';
+                //  const emoji = emojiMap[sentiment.label] || ''; // Get emoji from map or default to empty string
+                //  sentimentLabel.innerText = `${sentiment.label}:  ${emoji}`;
+
+                const progressBar = document.createElement('div');
+                progressBar.className = 'progress-bar';
+              
+                const progress = document.createElement('div');
+                progress.className = 'progress';
+                progress.style.width = `${(sentiment.score * 100).toFixed(2)}%`;
+                progress.innerText = `${(sentiment.score * 100).toFixed(2)}%`;
+               
+
+
+
+                const emoji = emojiMap[sentiment.label] || ''; // Get emoji from map or default to empty string
+                const emojiElement = document.createElement('span');
+                emojiElement.className = 'emoji';
+                emojiElement.innerText = emoji;
+
+
+                 // Set color based on percentage
+                 const percentage = sentiment.score * 100;
+                 if (percentage < 10) {
+                    progress.style.backgroundColor = 'red';
+                   
+                } else if (percentage < 30) {
+                    progress.style.backgroundColor = 'orange';
+                    progress.style.color = 'black';
+                    
+                } else if (percentage < 50) {
+                    progress.style.backgroundColor = 'yellow';
+                    progress.style.color = 'black';
+                } else if (percentage < 60) {
+                    progress.style.backgroundColor = 'lightgreen';
+                    progress.style.color = 'black';
+                  
+                } else {
+                    progress.style.backgroundColor = 'green';
+                    
+                }
+                // progressBar.appendChild(progress);
+                // sentimentsContainer.appendChild(sentimentLabel);
+                // sentimentsContainer.appendChild(progressBar);
+
+                progressBar.appendChild(progress);
+                sentimentContainer.appendChild(sentimentLabel);
+                sentimentContainer.appendChild(progressBar);
+                sentimentContainer.appendChild(emojiElement);
+                sentimentsContainer.appendChild(sentimentContainer);
+
+                
+            });
+        } else {
+            responseElement.innerText = 'Could not determine the sentiment.';
+        }
+        inputElement.value = '';
+
+         // Hide the loading icon
+         loadingIcon.style.display = 'none';
+
+    }).catch(error => {
+        responseElement.innerText = 'Error processing sentiment analysis';
+        console.error('Error:', error);
+         // Hide the loading icon
+         loadingIcon.style.display = 'none';
+    });
+});
+   </script>
+   
+</body>
+</html>

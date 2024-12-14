@@ -1,0 +1,306 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit&family=Bree+Serif&family=Caveat:wght@400;700&family=Lobster&family=Monoton&family=Open+Sans:ital,wght@0,400;0,700;1,400;1,700&family=Playfair+Display+SC:ital,wght@0,400;0,700;1,700&family=Playfair+Display:ital,wght@0,400;0,700;1,700&family=Roboto:ital,wght@0,400;0,700;1,400;1,700&family=Source+Sans+Pro:ital,wght@0,400;0,700;1,700&family=Work+Sans:ital,wght@0,400;0,700;1,700&display=swap');
+
+
+body {
+    margin: 0px;
+    background: linear-gradient(to right, rgb(0, 0, 0), #1F2937);
+   
+
+    
+}
+* {
+    font-family: Outfit;
+}
+h1{
+    color: rgb(255, 255, 255);
+}
+.main-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    box-sizing: border-box;
+    overflow: hidden;
+}
+
+.description-container {
+    display: flex;
+    flex-direction: column;
+    align-self: flex-start;
+    gap: 54px;
+    width: 65%;
+    padding-top: 56px;
+    padding-bottom: 56px;
+    padding-left: 56px;
+    padding-right: 12px;
+    height: 100vh;
+    box-sizing: border-box;
+}
+
+.project-details-container {
+    align-items: flex-start;
+    display: flex;
+    flex: none;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    gap: 16px;
+    height: min-content;
+    justify-content: flex-start;
+    overflow: visible;
+    padding: 0;
+    position: relative;
+    width: 100%;
+}
+
+.project-heading {
+    flex: none;
+    height: auto;
+    position: relative;
+    width: 100%;
+}
+
+.heading {
+    background-image: url(https://static.vecteezy.com/system/resources/previews/024/089/140/original/abstract-colorful-background-orange-pink-purple-blue-neon-kids-retro-summer-color-gradiant-illustration-orange-pink-purple-blue-color-gradiant-background-vector.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: 0% 0%;
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: rgb(136, 136, 136);
+    font-size: 85px;
+    font-family: Outfit, sans-serif;
+    font-style: normal;
+    font-weight: 900;
+    text-align: left;
+    letter-spacing: 0px;
+    white-space: normal;
+    line-height: 1;
+    margin: 0px;
+    padding: 0px 0px 10px;
+}
+
+.project-description {
+    position: relative;
+    white-space: pre-wrap;
+    max-width: 569px;
+    word-break: break-word;
+    outline: none;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    flex-shrink: 0;
+    transform: none;
+}
+
+.description {
+    font-family: Outfit, sans-serif;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    letter-spacing: 0px;
+    line-height: 24px;
+    color: rgb(148, 163, 184);
+    margin: 0px;
+}
+.profile-section {
+    display: flex;
+    flex-direction: row;
+    gap: 16px;
+    justify-content: flex-start;
+    align-items: center;
+    max-width: 1000px;
+    overflow: visible;
+    padding: 0;
+    position: relative;
+    width: 100%;
+}
+
+.profile-pic-container {
+    width: 66px;
+    position: relative;
+    aspect-ratio: 1 / 1;
+    height: 66px;
+    border-radius: 40px;
+    box-shadow: 0 10px 25px #400363, 0 -5px 25px #008bc7;
+    margin-top: -25px;
+}
+
+.profile-pic {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    border-radius: inherit;
+}
+
+.student-pic {
+    display: block;
+    width: 100%;
+    height: 100%;
+    border-radius: inherit;
+    object-position: center;
+    object-fit: cover;
+    image-rendering: auto;
+}
+
+.profile-info-container {
+   
+        align-items: flex-start;
+        display: flex;
+        flex-direction: column;
+        gap: 5px;
+        justify-content: flex-start;
+        overflow: visible;
+        padding: 0;
+        position: relative;
+    
+    
+}
+
+.card{
+    margin-right: 247px;
+    margin-top: 148px;
+}
+
+
+
+.progress-bar {
+    width: 100%;
+    background-color: #312f2f;
+    border: 1px solid #ccc;
+    margin: 10px 0;
+    border-radius: 5px;
+    overflow: hidden;
+}
+.progress {
+    height: 24px;
+    /* background-color: #4caf50; */
+    text-align: center;
+    line-height: 24px;
+    color: white;
+}
+
+/* .sentiments-container{
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+} */
+
+.emoji {
+    font-size: 24px;
+    margin-left: 10px;
+}
+.bot-extra-info{
+    color: rgba(212, 212, 212, 0.6);
+    margin: 0px;
+    font-weight: 400;
+    font-family: Outfit, Sans-Serif;
+}
+.name {
+    font-size: 30px;
+    margin: 0px;
+    color: white;
+    font-weight: 600;
+margin-bottom: -30px;
+}
+#form{
+    margin-top: -15vh;
+    /* margin-right: 22vw; */
+    margin-left: -3vw;
+}
+#input{
+    color: white;
+    background-color:  #0b0f14;
+    width: 38vw;
+    height: 7vw;
+    margin-left: 7vw;
+    border-radius: 8px;
+}
+.btn-primary{
+    margin-top: 20px;
+    margin-left: 20vw;
+    width: 11vw;
+    height: 6vh;
+    border: none;
+    border-radius: 8px;
+    background: linear-gradient(to right, rgb(112 117 165), #bc6474);
+    font-weight: 700;
+    font-family: serif;
+    font-size: 20px;
+}
+.partition{
+    width: 32px;
+    height: auto;
+    color: black;
+    border: 1px solid #8fbda3;
+    margin-left: 19px;
+    box-shadow: white;
+    box-shadow: 2px 2px 17px 1px #d8808e;
+}
+#sentiments-container{
+    margin-left: 84px;
+    margin-right: 24px;
+    margin-top: 30px;
+}
+.sentiment-container {
+    display: flex;
+    flex-wrap: nowrap;
+    margin: 23px;
+}
+.label{
+    margin-right: 19px;
+    font-family: Outfit, sans-serif;
+}
+.item {
+    padding: 10px;
+    background-color: #d3d3d3; /* For visual distinction */
+    margin: 5px; /* For spacing */
+}
+.footer {
+    background-color: #10151c;
+    color: #fff;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    box-shadow: 2px 2px 9px 1px white;
+}
+
+.footer-left {
+    font-size: 14px;
+}
+
+.footer-right {
+    display: flex;
+    align-items: center;
+    margin-right: 9vw;
+}
+
+.footer-right {
+    color: #fff;
+    text-decoration: none;
+    margin-left: 20px;
+    margin-right: 34px;
+    font-size: 16px;
+
+}
+
+
+.loading-icon {
+    display: none;
+    border: 16px solid #f3f3f3;
+    border-top: 16px solid #3498db;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    animation: spin 2s linear infinite;
+    margin: 20px auto;
+}
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
