@@ -1,0 +1,2 @@
+# AuraSpectAI
+Sentiment Analyzer
