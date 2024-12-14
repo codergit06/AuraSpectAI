@@ -1,2 +1,3 @@
-# AuraSpectAI
-Sentiment Analyzer
+# AuraSpectAI✨
+<h3>Introducing Ur AI Saviour</h3>
+Now u can spectate 👀 people's <b>AURA</b> and follow up your conversations 🗣️ accordingly...
