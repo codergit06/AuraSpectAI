@@ -8,7 +8,7 @@ import fetch from 'node-fetch';
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
-// const apiUrl = "https://api-inference.huggingface.co/models/cardiffnlp/twitter-roberta-base-sentiment-latest";
+
 const apiUrl ="https://api-inference.huggingface.co/models/michellejieli/emotion_text_classifier";
 const apiToken = "your_api"; 
 
@@ -49,7 +49,4 @@ app.listen(3000, () => {
     console.log('Server listening on port: 3000');
 });
 
-//That's sick bro
-//that's dope - that's cool , but dope means stupid
 
-//That's lit 
